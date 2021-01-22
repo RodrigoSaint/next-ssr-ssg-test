@@ -5,7 +5,7 @@ interface VenueCardProps extends Venue {}
 
 export default function VenueCard(props: VenueCardProps) {
   return (
-    <a href={`/detail/${props.id}`}>
+    <a href={`/${props.id}`}>
       <div className="card is-slightly-rounded">
         <div className="card-image">
           <figure className="image">

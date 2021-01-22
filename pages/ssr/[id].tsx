@@ -4,7 +4,7 @@ import { Venue } from "entity/sponsor-venue";
 import { NextPageContext } from "next";
 
 export async function getServerSideProps(context: NextPageContext) {
-  const { getVenue } = await import("../../api/venue/[id]");
+  const { getVenue } = await import("../api/venue/[id]");
 
   const venue = await getVenue(parseInt(context.query.id as string));
 

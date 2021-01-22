@@ -3,7 +3,7 @@ import VenueCard from "component/venue-card";
 import { Venue } from "entity/sponsor-venue";
 
 export async function getStaticPaths() {
-  const { getSponsorVenues } = await import("../../api/venue");
+  const { getSponsorVenues } = await import("../api/venue");
   const venueCollection = await getSponsorVenues();
 
   return {
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const { getVenue } = await import("../../api/venue/[id]");
+  const { getVenue } = await import("../api/venue/[id]");
 
   const venue = await getVenue(parseInt(context.params.id as string));
 
