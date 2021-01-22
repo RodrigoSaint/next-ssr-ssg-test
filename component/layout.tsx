@@ -1,7 +1,4 @@
-import { useMemo } from "react";
-
 export default function Layout({ children, title }) {
-  const generatedAt = useMemo(() => new Date(), []);
   return (
     <div className="container is-widescreen">
       <nav className="navbar">
@@ -19,10 +16,7 @@ export default function Layout({ children, title }) {
       </nav>
       <main>
         <div className="wrapper">
-          <h1 className="title is-2">
-            {title} - Generated at {generatedAt.toLocaleDateString()} -{" "}
-            {generatedAt.toLocaleTimeString()}
-          </h1>
+          <h1 className="title is-2">{title}</h1>
           {children}
         </div>
       </main>

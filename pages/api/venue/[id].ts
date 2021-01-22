@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import { Venue } from "entity/sponsor-venue";
+import { NextApiRequest } from "next";
 
 const venueCollection: Venue[] = [
   {
@@ -45,13 +46,13 @@ const venueCollection: Venue[] = [
   },
 ];
 
-export function getSponsorVenues() {
-  return new Promise<Venue[]>((resolve) => {
-    setTimeout(() => resolve(venueCollection), 5000);
+export function getVenue(id: number) {
+  return new Promise<Venue>((resolve) => {
+    setTimeout(() => resolve(venueCollection.find((v) => v.id === id)), 5000);
   });
 }
 
-export default (req, res) => {
+export default (req: NextApiRequest, res) => {
   res.statusCode = 200;
-  getSponsorVenues().then(res.json);
+  getVenue(parseInt(req.query.id as string)).then(res.json);
 };
